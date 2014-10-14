@@ -1,10 +1,10 @@
 #include "my_string.h"
 #include "linked_list.h"
+#include "macros.h"
 
 #include <stdio.h>
 #include <stdlib.h>
 
-#define TEST
 int main(int argc, char** argv)
 {
 	char buf[MAX];
@@ -12,7 +12,6 @@ int main(int argc, char** argv)
 	char buf_nachname[MAX];
 	char d_name[20];
 	Node* head = NULL;
-	Node* item;
 
 #ifdef TEST
 	FILE* source = fopen("test_datei.txt", "r");

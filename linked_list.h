@@ -22,16 +22,17 @@
 #ifndef __LINKED_LIST_H__
 #define __LINKED_LIST_H__
 
+#include "macros.h"
 #include <stdio.h>
 #include <stdlib.h>
 
-#define MAX 100
 typedef struct Node
 {
 	struct Node* next;
 	char vorname[MAX];
 	char nachname[MAX];
 } Node;
+
 Node* make_node(const char* vorname, const char* nachname);
 int check_insertion_point(Node* ptr, const char* vorname, const char* nachname); //gibt 0 wenn punkt erreicht
 Node* insert_sorted(Node* head, const char* vorname, const char* nachname);
