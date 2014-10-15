@@ -23,7 +23,7 @@
 void char_cpy(char* p, const char* q)
 {
 	if(p && q)
-		while(*p++ = *q++);
+		while((*p++ = *q++));
 }
 
 void char_cpy_until(char* p, const char* q)

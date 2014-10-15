@@ -29,8 +29,8 @@
 typedef struct Node
 {
 	struct Node* next;
-	char vorname[MAX];
-	char nachname[MAX];
+	char* vorname;
+	char* nachname;
 } Node;
 
 Node* make_node(const char* vorname, const char* nachname);
