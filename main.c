@@ -32,9 +32,9 @@ int main(int argc, char** argv)
 		while(!(feof(source)))
 		{
 			fscanf(source, "%s", buf);
-			char_cpy(buf_vorname, buf);
+			char_cpy_until(buf_vorname, buf);
 			fscanf(source, "%s", buf);
-			char_cpy(buf_nachname, buf);
+			char_cpy_until(buf_nachname, buf);
 			head = insert_sorted(head, buf_vorname, buf_nachname);
 		}
 	}

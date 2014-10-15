@@ -26,6 +26,21 @@ void char_cpy(char* p, const char* q)
 		while(*p++ = *q++);
 }
 
+void char_cpy_until(char* p, const char* q)
+{
+	if(p && q)
+	{
+		while((*q != ' ') && (*q != '\n'))
+		{
+			*p = *q;
+			p++;
+			q++;
+		}
+		p++;
+		*p = '\0';
+	}
+}
+
 int char_cmp(const char* p,const char* q)
 {
 	if(p && q)

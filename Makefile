@@ -8,7 +8,7 @@ OBJ = main.o my_string.o linked_list.o
 	$(CC) -c -o $@ $< $(CFLAGS)
 
 sys_prog_1_1: $(OBJ)
-	$(CC) -o $@ $^ $(CFLAGS)
+	$(CC) -o $@ $^ $(CFLAGS) -g
 
 clean:
 	rm -vfr *~ sys_prog_1_1
