@@ -32,10 +32,12 @@ int main(int argc, char** argv)
 		while(!(feof(source)))
 		{
 			fscanf(source, "%s", buf);
+			if(*buf == '\0') break;
 			char_cpy_until(buf_vorname, buf);
 			fscanf(source, "%s", buf);
 			char_cpy_until(buf_nachname, buf);
 			head = insert_sorted(head, buf_vorname, buf_nachname);
+			buf[0] = '\0';
 		}
 	}
 
