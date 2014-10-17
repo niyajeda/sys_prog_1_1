@@ -25,7 +25,6 @@
 #include <stdio.h>
 
 void char_cpy(char* p, const char* q);
-void char_cpy_until(char* p, const char* q);
 int char_cmp(const char* p,const char* q);
 
 #endif /* __MY_STRING_H__ */

@@ -21,6 +21,7 @@
 #include "my_string.h"
 #include "linked_list.h"
 
+// fügt argumente in Node ein, alloziert speicher für entstandene Node und gibt sie zurück
 Node* make_node(const char* vorname, const char* nachname)
 {
 	Node* tmp;
@@ -36,12 +37,12 @@ Node* make_node(const char* vorname, const char* nachname)
 
 int check_insertion_point(Node* ptr, const char* vorname, const char* nachname) //gibt 0 wenn punkt erreicht
 {
-	if(char_cmp(nachname, ptr->nachname) < 0 || (ptr == NULL)) { return 0; }
-	else if(char_cmp(nachname, ptr->nachname) > 0) { return 1; }
-	else
+	if(char_cmp(nachname, ptr->nachname) < 0 || (ptr == NULL)) { return 0; } // einfügen wenn nachname<listen name oder liste zu ende
+	else if(char_cmp(nachname, ptr->nachname) > 0) { return 1; } // nicht einfügen wenn nachname>listen name
+	else // nachname und listen name sind gleich
 	{
-		if(char_cmp(vorname, ptr->vorname) <= 0 || (ptr == NULL)) { return 0; }
-		else { return 1; }
+		if(char_cmp(vorname, ptr->vorname) <= 0 || (ptr == NULL)) { return 0; } // einfügen wenn vorname<=listen vorname
+		else { return 1; } // nicht einfügen: vorname>listen vorname 
 	}
 }
 
@@ -51,7 +52,7 @@ Node* insert_sorted(Node* head, const char* vorname, const char* nachname)
 	Node* prev = head;
 	Node* ptr = head;
 
-	if(!head) //empty list
+	if(!head) // leere liste - head wird ende und neue node wird head
 	{
 		tmp = make_node(vorname, nachname);
 		tmp->next = head;
@@ -74,7 +75,7 @@ Node* insert_sorted(Node* head, const char* vorname, const char* nachname)
 	}
 
 	tmp = make_node(vorname, nachname);
-	prev->next = tmp;
+	prev->next = tmp; // vor gefundener stelle einfügen
 	tmp->next = ptr;
 	return head;
 }
@@ -94,11 +95,11 @@ void delete_list(Node* head)
 	Node* ptr, *last;
 	ptr = head;
 
-	while(ptr)
+	while(ptr) // solange nicht am ende der liste
 	{
-		last = ptr;
-		ptr = ptr->next;
-		free(last);
+		last = ptr; // akuelle node zum freigeben vorbereiten
+		ptr = ptr->next; // zum nächsten node wechseln
+		free(last); 
 	}
 	head = NULL;
 }

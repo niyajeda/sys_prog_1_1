@@ -22,37 +22,27 @@
 
 void char_cpy(char* p, const char* q)
 {
-	if(p && q)
-		while((*p++ = *q++));
+	if(p && q) // p und q nicht NULL
+		while((*p++ = *q++)); //solange *q != '\0', inhalt von q nach p - danach eine pos weiter 
 }
 
-void char_cpy_until(char* p, const char* q)
-{
-	if(p && q)
-	{
-		while((*q != ' ') && (*q != '\n'))
-		{
-			*p = *q;
-			p++;
-			q++;
-		}
-		p++;
-		*p = '\0';
-	}
-}
-
+/*
+ * p < q return <0
+ * p > q return >0
+ * p == q return 0
+ * p && q == NULL return >0
+ */
 int char_cmp(const char* p,const char* q)
-{
-	if(p && q)
+{ 
+	if(p && q) // p und q nicht NULL
 	{
-		while(*p == *q)
+		while(*p == *q) // solange inhalt von p und q gleich
 		{
-			if(*p == '\0') return (0);
-		
+			if(*p == '\0') return (0); // wenn p am ende dann auch q und somit gleich
 			p++;
-			q++;
+			q++; // eine position weiter
 		}
-		return (*p - *q);
+		return (*p - *q); // *p und *q sind nicht mehr gleich: welcher ist "größer"
 	}
-	return +1;
+	return +1; // tritt hoffentlich nicht ein
 }
