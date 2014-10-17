@@ -59,13 +59,10 @@ Node* insert_sorted(Node* head, const char* vorname, const char* nachname)
 		return tmp;
 	}
 	else if(char_cmp(nachname, head->nachname) <= 0) //vor dem ersten einfügen nach nachname
-	{
-		if(char_cmp(vorname, ptr->vorname) <= 0 || (ptr == NULL)) //vor dem ersten einfügen nach vorname
 		{
 			tmp = make_node(vorname, nachname);
 			tmp->next = head;
 			return tmp;
-		}
 	}
 
 	while((ptr != NULL) && (check_insertion_point(ptr, vorname, nachname))) //bedingte auswertung, richtige stelle zum einfügen suchen
