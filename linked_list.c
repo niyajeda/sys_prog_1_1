@@ -58,8 +58,8 @@ Node* insert_sorted(Node* head, const char* vorname, const char* nachname)
 		tmp->next = head;
 		return tmp;
 	}
-	else if(char_cmp(nachname, head->nachname) <= 0) //vor dem ersten einfügen nach nachname
-		{
+	else if(char_cmp(nachname, head->nachname) < 0) //vor dem ersten einfügen nach nachname
+	{
 			tmp = make_node(vorname, nachname);
 			tmp->next = head;
 			return tmp;
